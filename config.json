@@ -1,4 +1,14 @@
 {
-  "getCards_set": "getCards1",
-  "getCardDeliveryStatus_set": ""
+  "wsdl":
+  {
+    "getCards": "http://kwsesbapu06.alfa.bank.int:8280/services/CardLogisticsWF?wsdl",
+    "createApplication": "http://kwsesbapu06.alfa.bank.int:8280/services/DeliveryWF?wsdl"
+  },
+
+  "testSet":
+  {
+    "getCards": "getCards1",
+    "getCardDeliveryStatus": "",
+    "createApplication": "createApplication1"
+  }
 }

@@ -8,5 +8,11 @@
     "deliveryRegionCode": "", "deliveryDistrictCode": "", "barcode": "", "dateOnPrintFrom": "2018-02-01", "dateOnPrintTo": "2018-02-28",
     "batchId": "", "orderId": "", "taxId": "", "limit": "10", "offset": "10", "actId": "", "fioReceiver": "", "typeTransfer": "",
     "deliveryChannel": "", "deliveryType": "", "messageIdPrimaryProcess": ""
+  },
+  "createApplication1":
+  {
+    "A": "contragentId", "B": "taxId ", "C": "phoneNumber", "D": "сlientName", "E": "deliveryAddress", "F": "",
+    "G": "productName", "H": "shopId", "I": "", "J": "cardId", "K": "cardMask", "L": "channelDelivery", "M": "objectTypeId",
+    "N": "comment", "O": "messageIdPrimaryProcess", "P": "primaryProcessCode", "Q": "dateExp", "R": "externalSystem", "S": "user"
   }
 }
