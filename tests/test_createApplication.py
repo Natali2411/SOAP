@@ -2,15 +2,24 @@ from models.soap import SoapMethods
 test_set = SoapMethods().openConfig()["testSet"]["getCards"] # набор данных для теста с test_data.json
 param = SoapMethods().openTestData()[test_set]
 wsdl = SoapMethods().openConfig()["wsdl"]["createApplication"]
-
+from datetime import datetime
 
 def createMassApps(obj):
-    '''
-    f = obj.openXlsFile('D:\Python\SOAP\delivery12.xlsx')
+    f = obj.openXlsFile('D:\Python\SOAP\delivery14.xlsx')
+    #print(f)
+    #str(f[str(t)][0]
+    #print(len(f))
     print(f)
-    res = obj.connectToWebService(wsdl).service.createApplication(contragentId=f["2"][0], taxId=f["2"][1], phoneNumber=f["2"][2],
-    сlientName=f["2"][3], deliveryAddress=f["2"][4], productName=f["2"][5], shopId=f["2"][6], cardId=f["2"][7], cardMask=f["2"][8],
-    channelDelivery=f["2"][9], objectTypeId=f["2"][10], comment=f["2"][11], messageIdPrimaryProcess=f["2"][12], primaryProcessCode=f["2"][13],
-    dateExp=f["2"][14], externalSystem=f["2"][15], user=f["2"][16])'''
-    res = obj.connectToWebService(wsdl).service.createApplication()
-    return res
+    for t in range(len(f)-1):
+        print(t) # str(t)
+'''
+        res = obj.connectToWebService(wsdl).service.createApplication(contragentId=f[str(t)][0], taxId=f[str(t)][1], phoneNumber=f[str(t)][2],
+                                                                  clientName=str(f[str(t)][3]), deliveryAddress=str(f[str(t)][4]), productName=str(f[str(t)][6]), shopId=str(f[str(t)][7]), cardId=f[str(t)][9],
+                                                                  cardMask=str(f[str(t)][10]), channelDelivery=str(f[str(t)][11]), objectTypeId=f[str(t)][12], comment="test", #str(f[str(t)][11]),
+                                                                  messageIdPrimaryProcess=str(f[str(t)][14]), primaryProcessCode=str(f[str(t)][15]), dateExp=f[str(t)][16], externalSystem=str(f[str(t)][17]),
+                                                                  user=str(f[str(t)][18]))
+'''
+
+
+if __name__ == '__main__':
+    print(createMassApps(SoapMethods()))

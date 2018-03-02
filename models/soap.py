@@ -30,7 +30,7 @@ class SoapMethods():
             return json.load(f)
 
     def openXlsFile(self, file):
-        vCount = 1
+        vCount = 0
         res = {}
         rb = xlrd.open_workbook(file)
         sheet = rb.sheet_by_index(0)
