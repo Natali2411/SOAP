@@ -1,10 +1,11 @@
-    '''
-    #d = datetime.strptime(str(f["1"][16]), '%dd.%md.%YYYY')
-    res = obj.connectToWebService(wsdl).service.createApplication(contragentId=f["1"][0], taxId=f["1"][1], phoneNumber=f["1"][2],
-                                                                  clientName=str(f["1"][3]), deliveryAddress=str(f["1"][4]), productName=str(f["1"][6]), shopId=str(f["1"][7]), cardId=f["1"][9],
-                                                                  cardMask=str(f["1"][10]), channelDelivery=str(f["1"][11]), objectTypeId=f["1"][12], comment="test", #str(f["1"][11]),
-                                                                  messageIdPrimaryProcess=str(f["1"][14]), primaryProcessCode=str(f["1"][15]), dateExp=str(f["1"][16]), externalSystem=str(f["1"][17]),
-                                                                  user=str(f["1"][18]))
-    
-'''
-    #res = obj.connectToWebService(wsdl).service.createApplication()
+В проекті "SOAP" реалізована можливість автоматизації процесу виклику методів веб-сервісів з використанням мови програмування python і бібліотеки zeep. Структура проекту: пакети (models, tests), конфігураційний файл config.json, файл з тестовими даними test_data.json, файл з фікстурами (preconditions до запуску тестів) conftest.py.
+В пакеті models реалізовані загальні методи, необхідні для запуску тестів, відкриття конфігураційних файлів, файлів тестових даних. В пакеті tests створені перевірки методів.
+Пакет tests містить перевірки таких методів веб-сервісів:
+1) createApplication (test_createApplication.py)
+2) getCards (test_getCards.py)
+Запуск даних файлів в середовищі (IDE) PyCharm дає можливість запустити цикли тестів по вказаним методам.
+
+Інструкції запуску файлів тестів
+
+1) Перед запуском теста test_createApplication.py на виконання потрібно підготувати файл з даними (параметрами), вказати шлях до нього і виконати мапинг полів (файла .xlsx) з параметрами метода в файлі test_createApplication.py.
+2) Для запуску test_getCards.py на виконання необхідно підготувати тестові дані і занести в файл test_data.json. В конфігураційному файлі зазначається набір даних, з яким запускаються тести на виконання.
