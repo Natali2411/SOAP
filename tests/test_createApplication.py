@@ -4,15 +4,15 @@ param = SoapMethods().openTestData()[test_set]
 wsdl = SoapMethods().openConfig()["wsdl"]["createApplication"]
 
 
-def createMassApps(obj):
+def test_createMassApps(obj):
     f = obj.openXlsFile('D:\Python\SOAP\delivery13.xlsx')
     v_count = 0
     for t in f:
         if len(str(f[str(t)][0])) > 1:
-            contragentId = int(f[str(t)][0])
-            shopId = int(f[str(t)][7])
-            cardId = int(f[str(t)][9])
-            objectTypeId = int(f[str(t)][12])
+            contragentId = str(f[str(t)][0]).split(".")[0].strip()
+            shopId = str(f[str(t)][7]).split(".")[0].strip()
+            cardId = int(str(f[str(t)][9]).split(".")[0])
+            objectTypeId = int(str(f[str(t)][12]).split(".")[0])
 
             res = obj.connectToWebService(wsdl).service.createApplication(contragentId=contragentId, taxId=f[str(t)][1],
                                                                           phoneNumber=f[str(t)][2], clientName=str(f[str(t)][3]), deliveryAddress=str(f[str(t)][4]),
@@ -28,4 +28,4 @@ def createMassApps(obj):
     return v_count
 
 if __name__ == '__main__':
-    print(createMassApps(SoapMethods()))
+    test_createMassApps(SoapMethods())
