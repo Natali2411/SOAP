@@ -1,7 +1,8 @@
 from models.soap import SoapMethods
-test_set = SoapMethods().openConfig()["testSet"]["getCards"] # набор данных для теста с test_data.json
-param = SoapMethods().openTestData()[test_set]
-wsdl = SoapMethods().openConfig()["wsdl"]["createApplication"]
+obj = SoapMethods()
+test_set = obj.openConfig()["testSet"]["getCards"] # набор данных для теста с test_data.json
+param = obj.openTestData()[test_set]
+wsdl = obj.openConfig()["wsdl"]["createApplication"]
 
 
 def test_createMassApps(obj):
@@ -21,7 +22,7 @@ def test_createMassApps(obj):
                                                                           objectTypeId=objectTypeId, comment="test", #str(f[str(t)][11]),
                                                                           messageIdPrimaryProcess=str(f[str(t)][14]), primaryProcessCode=str(f[str(t)][15]),
                                                                           dateExp='31.03.2018', externalSystem=str(f[str(t)][17]),
-                                                                          user=str(f[str(t)][18]))
+                                                                          user=str(f[str(t)][18]), plannedDeliveryDate=str(SoapMethods().getCurrentDateTime()))
 
             v_count += 1
     print("Rows created: " + str(v_count))
