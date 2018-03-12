@@ -5,7 +5,7 @@ wsdl = SoapMethods().openConfig()["wsdl"]["createApplication"]
 
 
 def test_createMassApps(obj):
-    f = obj.openXlsFile('D:\Python\SOAP\delivery13.xlsx')
+    f = obj.openXlsFile('D:\Python\SOAP\delivery14.xlsx')
     v_count = 0
     for t in f:
         if len(str(f[str(t)][0])) > 1:
