@@ -6,7 +6,7 @@ wsdl = obj.openConfig()["wsdl"]["createApplication"]
 
 
 def test_createMassApps(obj):
-    f = obj.openXlsFile('D:\Python\SOAP\delivery14.xlsx')
+    f = obj.openXlsFile('D:\Python\SOAP\delivery13.xlsx')
     v_count = 0
     for t in f:
         if len(str(f[str(t)][0])) > 1:
@@ -21,7 +21,7 @@ def test_createMassApps(obj):
                                                                           cardMask=str(f[str(t)][10]), channelDelivery=str(f[str(t)][11]),
                                                                           objectTypeId=objectTypeId, comment="test", #str(f[str(t)][11]),
                                                                           messageIdPrimaryProcess=str(f[str(t)][14]), primaryProcessCode=str(f[str(t)][15]),
-                                                                          dateExp='31.03.2018', externalSystem=str(f[str(t)][17]),
+                                                                          dateExp='12.03.2018', externalSystem=str(f[str(t)][17]),
                                                                           user=str(f[str(t)][18]), plannedDeliveryDate=str(obj.getCurrentDateTime()))
 
             v_count += 1

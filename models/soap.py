@@ -6,11 +6,14 @@ from requests import Session
 from requests.auth import HTTPBasicAuth
 from zeep.transports import Transport
 import ssl, os, json
-import xlrd
+import xlrd, time, datetime
 
 class SoapMethods():
     def __init__(self):
         pass
+
+    def getCurrentDateTime(self):
+        return datetime.datetime.now()
 
     def connectToWebService(self, wsdl):
         session = Session()
@@ -43,4 +46,5 @@ class SoapMethods():
 
 if __name__ == '__main__':
     obj = SoapMethods()
-    print(obj.openXlsFile('D:\Python\SOAP\delivery12.xlsx'))
+    #print(obj.openXlsFile('D:\Python\SOAP\delivery12.xlsx'))
+    print(obj.getCurrentDateTime())
