@@ -14,5 +14,9 @@
     "A": "contragentId", "B": "taxId ", "C": "phoneNumber", "D": "сlientName", "E": "deliveryAddress", "F": "",
     "G": "productName", "H": "shopId", "I": "", "J": "cardId", "K": "cardMask", "L": "channelDelivery", "M": "objectTypeId",
     "N": "comment", "O": "messageIdPrimaryProcess", "P": "primaryProcessCode", "Q": "dateExp", "R": "externalSystem", "S": "user"
+  },
+  "getApp":
+  {
+
   }
 }

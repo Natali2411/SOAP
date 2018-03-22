@@ -1,4 +1,5 @@
 # pip install --trusted-host pypi.python.org pack_name
+# python -m pip install --trusted-host pypi.python.org --upgrade lib_name (for example, cx_Oracle)
 from zeep import Client
 from zeep import xsd
 from zeep.wsse.username import UsernameToken
@@ -7,6 +8,7 @@ from requests.auth import HTTPBasicAuth
 from zeep.transports import Transport
 import ssl, os, json
 import xlrd, time, datetime
+import cx_Oracle
 
 class SoapMethods():
     def __init__(self):
@@ -43,8 +45,21 @@ class SoapMethods():
             vCount += 1
         return res #rb.nsheets
 
+    def dbConnect(self):
+        '''
+        connection = cx_Oracle.connect(self.openConfig()["db"]["user"], self.openConfig()["db"]["password"],
+                                       self.openConfig()["db"]["server"])'''
+        connection = cx_Oracle.connect('IC', 'vjcrdf4', 'ISCARDT4.WORLD')
+        cursor = connection.cursor()
+        return cursor
+
+
+    def closeDBConnect(self, cursor):
+        return cursor.close()
+
+
 
 if __name__ == '__main__':
     obj = SoapMethods()
     #print(obj.openXlsFile('D:\Python\SOAP\delivery12.xlsx'))
-    print(obj.getCurrentDateTime())
+    print(obj.dbConnect())

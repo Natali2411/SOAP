@@ -1,14 +1,22 @@
 {
+  "db":
+  {
+    "user": "UAFLINK7",
+    "password": "flink",
+    "server": "FLINK_TEST.WORLD"
+  },
   "wsdl":
   {
     "getCards": "http://kwsesbapu06.alfa.bank.int:8280/services/CardLogisticsWF?wsdl",
-    "createApplication": "http://kwsesbapu06.alfa.bank.int:8280/services/DeliveryWF?wsdl"
+    "createApplication": "http://kwsesbapu06.alfa.bank.int:8280/services/DeliveryWF?wsdl",
+    "getApp": "http://kwsesbapu06.alfa.bank.int:8280/services/DeliveryWF?wsdl"
   },
 
   "testSet":
   {
     "getCards": "getCards1",
     "getCardDeliveryStatus": "",
-    "createApplication": "createApplication1"
+    "createApplication": "createApplication1",
+    "getApp": ""
   }
 }
