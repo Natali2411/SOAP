@@ -46,10 +46,10 @@ class SoapMethods():
         return res #rb.nsheets
 
     def dbConnect(self):
-        '''
+
         connection = cx_Oracle.connect(self.openConfig()["db"]["user"], self.openConfig()["db"]["password"],
-                                       self.openConfig()["db"]["server"])'''
-        connection = cx_Oracle.connect('IC', 'vjcrdf4', 'ISCARDT4.WORLD')
+                                       self.openConfig()["db"]["server"])
+        #connection = cx_Oracle.connect('IC', 'vjcrdf4', 'ISCARDT4.WORLD')
         cursor = connection.cursor()
         return cursor
 
