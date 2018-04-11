@@ -1,5 +1,6 @@
 # pip install --trusted-host pypi.python.org pack_name
 # python -m pip install --trusted-host pypi.python.org --upgrade lib_name (for example, cx_Oracle)
+# pip install --trusted-host pypi.python.org -r requirements.txt   install all libraries from requirements.txt
 from zeep import Client
 from zeep import xsd
 from zeep.wsse.username import UsernameToken
@@ -9,6 +10,7 @@ from zeep.transports import Transport
 import ssl, os, json
 import xlrd, time, datetime
 import cx_Oracle
+from zeep.plugins import HistoryPlugin
 
 class SoapMethods():
     def __init__(self):
@@ -21,7 +23,7 @@ class SoapMethods():
         session = Session()
         session.verify = False
         transport = Transport(session=session)
-        client = Client(wsdl, transport=transport, strict=False, wsse=UsernameToken("testuser", "testuser"))
+        client = Client(wsdl, plugins=[HistoryPlugin()], transport=transport, strict=False, wsse=UsernameToken("testuser", "testuser"))
         return client
 
     def openConfig(self):
@@ -45,10 +47,10 @@ class SoapMethods():
             vCount += 1
         return res #rb.nsheets
 
-    def dbConnect(self):
+    def dbConnect(self, db):
 
-        connection = cx_Oracle.connect(self.openConfig()["db"]["user"], self.openConfig()["db"]["password"],
-                                       self.openConfig()["db"]["server"])
+        dbType = self.openConfig()["db"][db]
+        connection = cx_Oracle.connect(dbType["user"], dbType["password"], dbType["server"])
         #connection = cx_Oracle.connect('IC', 'vjcrdf4', 'ISCARDT4.WORLD')
         cursor = connection.cursor()
         return cursor
@@ -62,4 +64,4 @@ class SoapMethods():
 if __name__ == '__main__':
     obj = SoapMethods()
     #print(obj.openXlsFile('D:\Python\SOAP\delivery12.xlsx'))
-    print(obj.dbConnect())
+    print(obj.dbConnect(db='ISCARDT2aix'))

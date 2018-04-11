@@ -6,7 +6,7 @@ obj = SoapMethods()
 param = obj.openConfig()["testSet"]["card"]
 wsdl = obj.openConfig()["wsdl"][param]
 
-def test_positive_params():
-    res = obj.connectToWebService(wsdl).service.getCardAccountOperations(accountNo='26251002423467',
-                                                                         periodBegin='2016-01-01', periodEnd='2016-01-01')
+def test_getInstallmentProduct():
+    res = obj.connectToWebService(wsdl).service.getInstallmentProduct(adviceId=94109633, channel='SMS')
+    print(type(res))
     print(res)
